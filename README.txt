@@ -1,6 +1,8 @@
-
-by oinky
+EasyCustomStuff by oinky
 https://oinkratpig.itch.io
+
+Requires BepInEx
+https://github.com/BepInEx/BepInEx
 
 ==========================
 
