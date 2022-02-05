@@ -1,0 +1,14 @@
+D:\Programming Projects\BepInEx\EasyCustomStuff\bin\Debug\netstandard2.0\EasyCustomStuff.deps.json
+D:\Programming Projects\BepInEx\EasyCustomStuff\bin\Debug\netstandard2.0\EasyCustomStuff.dll
+D:\Programming Projects\BepInEx\EasyCustomStuff\bin\Debug\netstandard2.0\EasyCustomStuff.pdb
+D:\Programming Projects\BepInEx\EasyCustomStuff\bin\Debug\netstandard2.0\Assembly-CSharp-firstpass.dll
+D:\Programming Projects\BepInEx\EasyCustomStuff\bin\Debug\netstandard2.0\Assembly-CSharp.dll
+D:\Programming Projects\BepInEx\EasyCustomStuff\obj\Debug\netstandard2.0\EasyCustomStuff.csproj.AssemblyReference.cache
+D:\Programming Projects\BepInEx\EasyCustomStuff\obj\Debug\netstandard2.0\PluginInfo.cs
+D:\Programming Projects\BepInEx\EasyCustomStuff\obj\Debug\netstandard2.0\EasyCustomStuff.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming Projects\BepInEx\EasyCustomStuff\obj\Debug\netstandard2.0\EasyCustomStuff.AssemblyInfoInputs.cache
+D:\Programming Projects\BepInEx\EasyCustomStuff\obj\Debug\netstandard2.0\EasyCustomStuff.AssemblyInfo.cs
+D:\Programming Projects\BepInEx\EasyCustomStuff\obj\Debug\netstandard2.0\EasyCustomStuff.csproj.CoreCompileInputs.cache
+D:\Programming Projects\BepInEx\EasyCustomStuff\obj\Debug\netstandard2.0\EasyCustomStuff.csproj.CopyComplete
+D:\Programming Projects\BepInEx\EasyCustomStuff\obj\Debug\netstandard2.0\EasyCustomStuff.dll
+D:\Programming Projects\BepInEx\EasyCustomStuff\obj\Debug\netstandard2.0\EasyCustomStuff.pdb
