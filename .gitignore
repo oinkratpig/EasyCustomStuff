@@ -1,3 +1,4 @@
 *.bat
+/.vs/
 /[Bb]in/
 /[Ll]ib/*
