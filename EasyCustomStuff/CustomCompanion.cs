@@ -114,8 +114,6 @@ namespace EasyCustomStuff
 		/* Prepares the custom companion for use */
 		private void Initialize()
 		{
-			_companionEntityID = (EntityIDs) nextEntityID++;
-			LoadExistingCompanion("Anton");
 
 		} // end Initialize
 
@@ -158,6 +156,7 @@ namespace EasyCustomStuff
 			ModifyExistingCompanion(name);
 			Companion = UnityEngine.Object.Instantiate(Companion);
 			_isModifyingCompanion = false;
+			_companionEntityID = (EntityIDs)nextEntityID++;
 			EntityID = _companionEntityID;
 
 		} // end LoadExistingCompanionSO
