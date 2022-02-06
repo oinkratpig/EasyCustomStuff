@@ -1,4 +1,5 @@
 *.bat
+/obj/
 /.vs/
-/[Bb]in/
-/[Ll]ib/*
+/bin/
+/lib/
