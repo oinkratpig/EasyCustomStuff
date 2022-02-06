@@ -14,7 +14,7 @@ namespace EasyCustomStuff
 			UsesAllAbilities = true;
 			UsesOverworldMovingAnim = false;
 
-		} // end Create
+		} // end Setup
 
 	} // end class ExampleCompanion
 
