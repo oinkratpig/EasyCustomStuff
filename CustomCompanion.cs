@@ -144,20 +144,10 @@ namespace EasyCustomStuff
 
 		} // end class PatchMainMenuController
 
-		/* Returns the dictionary containing all loaded base characters */
-		public static Dictionary<string, CharacterSO> GetLoadedCompanions()
-		{
-			// Keys: "Name_CH"
-			return Traverse.Create(typeof(LoadedAssetsHandler))
-				.Field("LoadedCharacters")
-				.GetValue<Dictionary<string, CharacterSO>>();
-
-		} // end GetLoadedCompanions
-
 		/* Sets the current SO to an already-existing companion */
 		public void ModifyExistingCompanion(string name)
 		{
-			Companion = GetLoadedCompanions()[$"{name}_CH"];
+			Companion = AssetManager.GetAllLoadedCompanions()[$"{name}_CH"];
 			_isModifyingCompanion = true;
 
 		} // end ModifyExistingCompanionSO
