@@ -1,12 +1,13 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace EasyCustomStuff
 {
-    abstract class CustomCompanion
+    abstract class CustomCompanion : CustomObject
     {
-        private static int nextEntityID = 100000;
-        private static List<CustomCompanion> allCustomCompanions = new();
+        private static int _nextEntityID = 100000;
+        private static List<CustomCompanion> _allCustomCompanions = new();
         private CharacterSO _companionSO;
         private EntityIDs _companionEntityID;
         private bool _isModifyingCompanion;
@@ -26,7 +27,7 @@ namespace EasyCustomStuff
         } // end property Companion
 
         /* Name of this companion */
-        public string Name
+        protected string Name
         {
             get
             {
@@ -40,7 +41,7 @@ namespace EasyCustomStuff
         } // end property Name
 
         /* EntityID of this companion */
-        public EntityIDs EntityID
+        protected EntityIDs EntityID
         {
             get
             {
@@ -54,7 +55,7 @@ namespace EasyCustomStuff
         } // end property EntityID
 
         /* Whether or not this companion always has their basic (slap) ability */
-        public bool UsesSlap
+        protected bool UsesSlap
         {
             get
             {
@@ -69,7 +70,7 @@ namespace EasyCustomStuff
 
         /* Does this companion have access to ALL of their abilities at once?
 		 * (Slap does not count as an ability - see UsesSlap) */
-        public bool UsesAllAbilities
+        protected bool UsesAllAbilities
         {
             get
             {
@@ -83,7 +84,7 @@ namespace EasyCustomStuff
         } // end property UsesAllAbilities
 
         /* Whether or not to use the walking animation in the overworld */
-        public bool UsesOverworldMovingAnim
+        protected bool UsesOverworldMovingAnim
         {
             get
             {
@@ -99,12 +100,31 @@ namespace EasyCustomStuff
         /* Constructor */
         public CustomCompanion()
         {
-            allCustomCompanions.Add(this);
+            _allCustomCompanions.Add(this);
 
-        } // end CustomCompanion
+        } // end constructor
 
         /* Ran when companion data is created */
-        public abstract void Setup();
+        protected abstract void Setup();
+
+        /* Sets the current SO to an already-existing companion */
+        protected void ModifyExistingCompanion(string name)
+        {
+            Companion = GetAllLoadedCompanions()[$"{name}_CH"];
+            _isModifyingCompanion = true;
+
+        } // end ModifyExistingCompanion
+
+        /* Sets the current SO to a COPY of an already-existing companion */
+        protected void LoadExistingCompanion(string name)
+        {
+            ModifyExistingCompanion(name);
+            Companion = Object.Instantiate(Companion);
+            _isModifyingCompanion = false;
+            _companionEntityID = (EntityIDs)_nextEntityID++;
+            EntityID = _companionEntityID;
+
+        } // end LoadExistingCompanion
 
         /* On the main menu, create all of the custom companions */
         [HarmonyPatch(typeof(MainMenuController), "Start")]
@@ -113,41 +133,22 @@ namespace EasyCustomStuff
             [HarmonyPostfix]
             private static void Postfix(MainMenuController __instance)
             {
-                Plugin.Log.LogInfo("Loading custom companions...");
-                if (allCustomCompanions.Count == 0)
+                Log.LogInfo("Loading custom companions...");
+                if (_allCustomCompanions.Count == 0)
                 {
-                    Plugin.Log.LogInfo("No companions to load.");
+                    Log.LogInfo("No companions to load.");
                     return;
                 }
-                foreach (CustomCompanion companion in allCustomCompanions)
+                foreach (CustomCompanion companion in _allCustomCompanions)
                 {
                     companion.Setup();
                     string companionType = (companion._isModifyingCompanion) ? "modified" : "new";
-                    Plugin.Log.LogInfo($"  Successfully loaded {companionType} companion \"{companion.Name}\"! (EntityID:{companion.EntityID})");
+                    Log.LogInfo($"  Successfully loaded {companionType} companion \"{companion.Name}\"! (EntityID:{companion.EntityID})");
                 }
 
             } // end Postfix
 
         } // end class PatchMainMenuController
-
-        /* Sets the current SO to an already-existing companion */
-        protected void ModifyExistingCompanion(string name)
-        {
-            Companion = AssetManager.GetAllLoadedCompanions()[$"{name}_CH"];
-            _isModifyingCompanion = true;
-
-        } // end ModifyExistingCompanionSO
-
-        /* Sets the current SO to a COPY of an already-existing companion */
-        protected void LoadExistingCompanion(string name)
-        {
-            ModifyExistingCompanion(name);
-            Companion = UnityEngine.Object.Instantiate(Companion);
-            _isModifyingCompanion = false;
-            _companionEntityID = (EntityIDs)nextEntityID++;
-            EntityID = _companionEntityID;
-
-        } // end LoadExistingCompanionSO
 
     } // end class CustomCompanion
 
