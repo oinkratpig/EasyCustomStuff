@@ -10,7 +10,7 @@ namespace EasyCustomStuff
 		/* Returns the dictionary containing all loaded base characters */
 		public static Dictionary<string, CharacterSO> GetAllLoadedCompanions()
 		{
-			// Keys: "Name_CH"
+			// Keys: "CompanionName_CH"
 			return Traverse.Create(typeof(LoadedAssetsHandler))
 				.Field("LoadedCharacters")
 				.GetValue<Dictionary<string, CharacterSO>>();
