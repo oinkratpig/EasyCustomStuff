@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace EasyCustomStuff
 {
-	class CustomObject
+	public class CustomObject
 	{
 		private const int PIXELS_PER_UNIT = 32;
 

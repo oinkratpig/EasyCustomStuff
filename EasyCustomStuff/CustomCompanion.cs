@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace EasyCustomStuff
 {
-    abstract class CustomCompanion : CustomObject
+    public abstract class CustomCompanion : CustomObject
     {
         private static int _nextEntityID = 100000;
         private static List<CustomCompanion> _allCustomCompanions = new();

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace EasyCustomStuff
 {
-	class ExampleCompanion : CustomCompanion
+	public class ExampleCompanion : CustomCompanion
 	{
 		protected override void Setup()
 		{
