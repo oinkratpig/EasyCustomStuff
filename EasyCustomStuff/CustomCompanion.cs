@@ -110,7 +110,8 @@ namespace EasyCustomStuff
         /* Sets the current SO to an already-existing companion */
         protected void ModifyExistingCompanion(string name)
         {
-            Companion = GetAllLoadedCompanions()[$"{name}_CH"];
+            //Companion = GetAllLoadedCompanions()[$"{name}_CH"];
+            Companion = LoadedAssetsHandler.GetCharcater(name + "_CH");
             _isModifyingCompanion = true;
 
         } // end ModifyExistingCompanion

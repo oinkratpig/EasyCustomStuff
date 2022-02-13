@@ -10,7 +10,7 @@ namespace EasyCustomStuff
 	{
 		protected override void Setup()
 		{
-			ModifyExistingCompanion("Gospel");
+			ModifyExistingCompanion("Anton");
 			Name = "Dummy";
 			UsesSlap = false;
 			UsesAllAbilities = true;
