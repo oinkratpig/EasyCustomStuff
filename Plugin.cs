@@ -14,6 +14,7 @@ namespace EasyCustomStuff
 
             // Instantiate custom characters
             ExampleCompanion exampleCompanion = new();
+            Sans sans = new();
 
         } // end Awake
 
