@@ -82,9 +82,19 @@ namespace EasyCustomStuff
 			EnemySO enemy = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN");
 			newAbility.visuals = enemy.abilities[0].ability.visuals;
 
+			// ...
+			BaseBundleGeneratorSO bundle = LoadedAssetsHandler.GetEnemyBundle("Zone01_Mung_Easy_EnemyBundle");
+			RandomEnemyBundleSO randomBundle = bundle as RandomEnemyBundleSO;
+			RandomEnemyGroup group = new();
+			Traverse.Create(group).Field("_enemyNames").SetValue(new string[] { "Roids_BOSS", "Bronzo_EN" });
+			Traverse.Create(randomBundle).Field("_enemyBundles").SetValue(new RandomEnemyGroup[] { group });
+
+			// ...
+			// Companion.extraCombatSprites;
+
 			// Create passive
 			// Whenever damaged, cancel damage and move left or right
-			
+
 			// Create passive
 			// No incoming direct damage
 
